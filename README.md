@@ -1,5 +1,10 @@
 # WordWar ⚔️📝
 
+![CI](https://github.com/sujalkalauni/wordwar/actions/workflows/ci.yml/badge.svg)
+![Java](https://img.shields.io/badge/Java-17-orange?logo=java)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2-brightgreen?logo=springboot)
+![License](https://img.shields.io/badge/License-MIT-blue)
+
 > Multiplayer word game backend — real-time battles, scoring engine, global leaderboard
 
 A Spring Boot REST API for competitive word games. Create a game, invite opponents, and battle it out — who can find the highest-scoring word from a random set of letters?
