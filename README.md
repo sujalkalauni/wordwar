@@ -166,3 +166,28 @@ src/
 ## Author
 
 **Sujal Kalauni** — [github.com/sujalkalauni](https://github.com/sujalkalauni)
+
+
+---
+
+## Roadmap
+
+### v1.1.0 — Planned
+- [ ] BLITZ mode: timed rounds with shrinking letter pool
+- [ ] Websocket support for real-time multiplayer battles
+- [ ] Docker + docker-compose setup for easy local dev
+- [ ] Rate limiting on move submission endpoint
+- [ ] Input validation with Bean Validation (`@NotBlank`, `@Size`)
+
+### v1.2.0 — Future
+- [ ] Integration with external dictionary API (e.g. Dictionary API)
+- [ ] ELO-based player ranking system
+- [ ] Game spectator mode (read-only game view)
+- [ ] Admin dashboard for word dictionary management
+- [ ] Redis caching for leaderboard queries
+
+### v2.0.0 — Vision
+- [ ] Frontend client (React + TypeScript)
+- [ ] Mobile-friendly progressive web app
+- [ ] AI opponent mode using word frequency analysis
+- [ ] Tournament bracket system
