@@ -8,3 +8,26 @@ target/
 *.iml
 .vscode/
 src/main/resources/application.properties
+
+# Environment variables — never commit secrets!
+.env
+.env.local
+.env.*.local
+
+# IntelliJ IDEA
+*.iws
+*.ipr
+out/
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# Maven wrapper
+!.mvn/wrapper/maven-wrapper.jar
+
+# OS
+Thumbs.db
+ehthumbs.db
