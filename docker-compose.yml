@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: wordwar-app
+    ports:
+      - "8083:8083"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/wordwar?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME:-wordwar}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-wordwar_pass}
+      JWT_SECRET: ${JWT_SECRET:-changeme_use_a_long_random_secret_in_production}
+      JWT_EXPIRATION_MS: ${JWT_EXPIRATION_MS:-86400000}
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - wordwar-net
+
+  db:
+    image: mysql:8.0
+    container_name: wordwar-db
+    environment:
+      MYSQL_DATABASE: wordwar
+      MYSQL_USER: ${DB_USERNAME:-wordwar}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-wordwar_pass}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root_password}
+    ports:
+      - "3307:3306"   # expose on 3307 to avoid conflicts with local MySQL
+    volumes:
+      - wordwar-db-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - wordwar-net
+
+volumes:
+  wordwar-db-data:
+
+networks:
+  wordwar-net:
+    driver: bridge
